@@ -57,8 +57,9 @@ def get_op_code_and_modes(input_list, pointer):
 
 def run_int_code_program(input_list, program_inputs: list):
     pointer = 0
+    halted = False
 
-    while True:
+    while not halted:
         opcode, m1, m2, m3 = get_op_code_and_modes(input_list, pointer)
         if opcode == 1:
             op_code_1(input_list, pointer, m1, m2, m3)
@@ -76,7 +77,7 @@ def run_int_code_program(input_list, program_inputs: list):
         elif opcode == 4:
             output = op_code_4(input_list, pointer, m1)
             pointer += 2
-            break
+            halted = True
         elif opcode == 5:
             returned = op_code_5(input_list, pointer, m1, m2)
             pointer = returned
