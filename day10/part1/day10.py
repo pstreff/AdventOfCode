@@ -4,7 +4,6 @@ import math
 def main():
     reader = open('input.txt', 'r')
     input_list = list(map(list, reader.read().split('\n')))
-    # input = reader.readlines()
     asteroids = []
 
     for y in range(len(input_list)):
